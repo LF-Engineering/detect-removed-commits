@@ -2,7 +2,7 @@
 declare -A glog
 declare -A gfile
 #for f in `find .git/objects/??/ -type f | sed 's/\(.*\)\/\([[:xdigit:]]\{2\}\)\/\([[:xdigit:]]\+\)$/\2\3/g'`
-for f in `git cat-file --batch-all-objects --buffer --batch-check | grep ' commit ' | awk '{print $1}'`
+for f in `git cat-file --unordered --batch-all-objects --buffer --batch-check | grep ' commit ' | awk '{print $1}'`
 do
   gfile[$f]=1
 done
